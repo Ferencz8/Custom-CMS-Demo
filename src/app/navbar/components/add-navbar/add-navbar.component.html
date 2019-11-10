@@ -1,0 +1,29 @@
+<mat-card *ngIf="navbar$ | async as navbar" class="bo-halfSize bo-centered bo-marginTop5perc">
+    <mat-card-header>
+      <mat-card-title>Add a navbar element</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="bo-container bo-container__center">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput required [(ngModel)]="navbar.name">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Url</mat-label>
+          <input matInput [(ngModel)]="navbar.url">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select [(ngModel)]="navbar.displayOrder">
+            <mat-option *ngFor="let orderVal of orderVals" [value]="orderVal">{{orderVal}}</mat-option>
+          </mat-select>
+          <mat-label>
+            Display Order
+          </mat-label>
+        </mat-form-field>
+        <div class="bo-container__actionBtns">
+          <button mat-raised-button color="primary">Save</button>
+          <button mat-raised-button (click)="cancel()">Cancel</button>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>

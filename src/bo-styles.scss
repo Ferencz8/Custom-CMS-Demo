@@ -1,0 +1,44 @@
+.bo-container {
+  display: flex;
+  flex-direction: column;
+
+  &__center {
+    align-items: justify-content;
+  }
+
+  // > .mat-form-field {
+  //   width: 50%;
+  // }
+  // > .mat-raised-button {
+  //   width: 50%;
+  // }
+  &__actionBtns > button {
+    width: 50%;
+  }
+}
+
+.bo-halfSize {
+  width: 50%;
+}
+
+.bo-fullSize {
+  width: 100%;
+}
+
+.bo-centered {
+  margin: auto;
+}
+
+.bo-margin10perc {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.bo-marginTop5perc {
+  margin-top: 5%;
+}
+
+.bo-card-header-cols{
+  display: flex;
+  justify-content: space-between;
+}
