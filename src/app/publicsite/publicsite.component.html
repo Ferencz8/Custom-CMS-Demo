@@ -11,14 +11,9 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="#home" class="smoothscroll">Home</a></li>
-          <li> <a href="#about" class="smoothscroll"> About</a></li>
-          <li> <a href="#services" class="smoothscroll"> Services</a></li>
-          <li> <a href="#team" class="smoothscroll"> Team</a></li>
-          <li> <a href="#portfolio" class="smoothscroll"> Portfolio</a></li>
-          <li> <a href="#blog" class="smoothscroll"> Blog</a></li>
-          <li> <a href="#pricing" class="smoothscroll"> Pricing Tables</a></li>
-          <li> <a href="#contact" class="smoothscroll"> Contact</a></li>
+          <li *ngFor="let navbar of navbars$ | async">
+            <a href="navbar.url" class="smoothscroll">{{navbar.name}}</a>
+          </li>
         </ul>
       </div>
       <!--/.nav-collapse -->
@@ -758,26 +753,26 @@
       <h3>Newsletter</h3>
       <p>Register to our newsletter and be updated with the latests information regarding our services, offers and much
         more.</p>
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label for="inputEmail1" class="col-lg-4 control-label"></label>
-            <div class="col-lg-10">
-              <input type="email" class="form-control" id="inputEmail1" placeholder="Email">
-            </div>
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label for="inputEmail1" class="col-lg-4 control-label"></label>
+          <div class="col-lg-10">
+            <input type="email" class="form-control" id="inputEmail1" placeholder="Email">
           </div>
-          <div class="form-group">
-            <label for="text1" class="col-lg-4 control-label"></label>
-            <div class="col-lg-10">
-              <input type="text" class="form-control" id="text1" placeholder="Your Name">
-            </div>
+        </div>
+        <div class="form-group">
+          <label for="text1" class="col-lg-4 control-label"></label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="text1" placeholder="Your Name">
           </div>
-          <div class="form-group">
-            <div class="col-lg-10">
-              <button type="submit" class="btn btn-success">Sign in</button>
-            </div>
+        </div>
+        <div class="form-group">
+          <div class="col-lg-10">
+            <button type="submit" class="btn btn-success">Sign in</button>
           </div>
-        </form>
-        <!-- form -->
+        </div>
+      </form>
+      <!-- form -->
     </div>
 
     <div class="col-lg-3">
