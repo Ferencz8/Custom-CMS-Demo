@@ -1,3 +1,4 @@
+
 using PetaPoco;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,7 @@ namespace BackOffice.API.Repositories
 
     void Commit();
     Database Database { get; }
+
+    NavbarRepository NavbarRepository { get; }
   }
 }

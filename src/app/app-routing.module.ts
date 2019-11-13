@@ -5,6 +5,7 @@ import { PublicsiteComponent } from './publicsite/publicsite.component';
 
 const routes: Routes = [
   { path: '', component: PublicsiteComponent },
+  { path: 'backoffice', component: AppComponent }
  // { path: '/navbar', component: AppComponent, data: { tab: 'navbar' } }
 ];
 

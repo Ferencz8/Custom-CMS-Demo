@@ -10,6 +10,7 @@ import { SharedMaterialModule } from './shared.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { WidgetModule } from './widget/widget.module';
 import { PublicsiteModule } from './publicsite/publicsite.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PublicsiteModule } from './publicsite/publicsite.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
     SharedMaterialModule,
