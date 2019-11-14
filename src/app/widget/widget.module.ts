@@ -16,7 +16,7 @@ import { WidgetHtmlComponent } from './widget-html/widget-html.component';
     FormsModule,
     HttpClientModule,
     AngularEditorModule,
-    WidgetRoutingModule
+    // WidgetRoutingModule
   ]
 })
 export class WidgetModule { }

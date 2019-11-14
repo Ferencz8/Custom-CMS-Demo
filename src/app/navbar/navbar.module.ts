@@ -11,7 +11,7 @@ import { NavbarListComponent } from './components/navbar-list/navbar-list.compon
     CommonModule,
     FormsModule,
     SharedMaterialModule,
-    NavbarRoutingModule
+    // NavbarRoutingModule
   ],
   declarations: [
     NavbarListComponent,

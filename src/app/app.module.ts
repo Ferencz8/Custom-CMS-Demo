@@ -11,6 +11,7 @@ import { NavbarModule } from './navbar/navbar.module';
 import { WidgetModule } from './widget/widget.module';
 import { PublicsiteModule } from './publicsite/publicsite.module';
 import { HttpClientModule } from '@angular/common/http';
+import { BackofficeModule } from './backoffice/backoffice.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     BrowserAnimationsModule,
     SharedMaterialModule,
+    BackofficeModule,
     NavbarModule,
     WidgetModule,
     PublicsiteModule,
