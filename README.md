@@ -8,4 +8,6 @@ Steps to setup:
 2. Run "ng serve --open" to start the FE.
 3. Change in /BackOffice/appsettings.json the connection string to the SQL Server.
 4. Run the scripts from: BackOffice\Repositories\Scripts\Initial.sql to create the db schema.
-5. 
+5. Build/Restore Nuget packages using Visual Studio 2017+.
+6. Start the BE on port ...
+ 
