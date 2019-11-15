@@ -7,12 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'Backoffice';
-
-  navLinks = [
-    { label: 'Navbar', path: '/navbars', isActive: true },
-    { label: 'Widget', path: '/widgets' }
-  ];
 
   constructor(private router: Router) { }
 

@@ -59,16 +59,16 @@ export class AddNavbarComponent implements OnInit {
     console.log(navbar);
     if (this.isEdit) {
       this.navbarService.update(navbar).subscribe(() => {
-        this.router.navigate(['/navbars']);
+        this.router.navigate(['../backoffice/navbars']);
       });
     } else {
       this.navbarService.add(navbar).subscribe(() => {
-        this.router.navigate(['/navbars']);
+        this.router.navigate(['../backoffice/navbars']);
       });
     }
   }
 
   cancel() {
-    this.router.navigate(['/navbars']);
+    this.router.navigate(['../backoffice/navbars']);
   }
 }
