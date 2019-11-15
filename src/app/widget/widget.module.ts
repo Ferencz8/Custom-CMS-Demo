@@ -4,9 +4,9 @@ import { HttpClientModule} from '@angular/common/http';
 import { SharedMaterialModule } from '../shared.module';
 import { FormsModule } from '@angular/forms';
 import { AngularEditorModule } from '@kolkov/angular-editor';
-import { WidgetRoutingModule } from './widget-routing.module';
 import { WidgetListComponent } from './widget-list/widget-list.component';
 import { WidgetHtmlComponent } from './widget-html/widget-html.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [WidgetListComponent, WidgetHtmlComponent],
@@ -16,7 +16,7 @@ import { WidgetHtmlComponent } from './widget-html/widget-html.component';
     FormsModule,
     HttpClientModule,
     AngularEditorModule,
-    // WidgetRoutingModule
+    RouterModule
   ]
 })
 export class WidgetModule { }

@@ -61,6 +61,6 @@ export class WidgetHtmlComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['/widgets']);
+    this.router.navigate(['../backoffice/widgets']);
   }
 }

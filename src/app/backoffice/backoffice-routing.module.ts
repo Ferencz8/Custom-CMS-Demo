@@ -9,25 +9,17 @@ import { WidgetHtmlComponent } from '../widget/widget-html/widget-html.component
 const routes: Routes = [
   {
     path: 'backoffice', component: BackofficeComponent, children: [
-      {
-        path: 'navbars', component: NavbarListComponent, children: [
-          { path: 'addnavbar', component: AddNavbarComponent },
-          { path: 'editnavbar/:id', component: AddNavbarComponent }
-        ]
-      },
-      {
-        path: 'widgets', component: WidgetListComponent, children: [
-          { path: 'widget-html', component: WidgetHtmlComponent },
-        ]
-      }
+      { path: 'navbars', component: NavbarListComponent },
+      { path: 'addnavbar', component: AddNavbarComponent },
+      { path: 'editnavbar/:id', component: AddNavbarComponent },
+      { path: 'widgets', component: WidgetListComponent },
+      { path: 'widget-html', component: WidgetHtmlComponent },
     ]
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,
-    { enableTracing: true } // <-- debugging purposes only
-  )],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class BackofficeRoutingModule { }

@@ -22,6 +22,6 @@ export class NavbarListComponent implements OnInit {
   }
 
   edit(id) {
-    this.router.navigate([`/backoffice/navbars/editnavbar/${id}`]);
+    this.router.navigate([`/backoffice/editnavbar/${id}`]);
   }
 }
