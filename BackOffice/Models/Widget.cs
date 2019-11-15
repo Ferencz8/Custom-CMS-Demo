@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace BackOffice.API.Models
 {
+    
   public class Widget
   {
 

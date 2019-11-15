@@ -9,3 +9,14 @@ CREATE TABLE Navbars(
     IsDeleted BIT,
     DisplayOrder INT 
 )
+
+CREATE TABLE Widgets(
+    Id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
+    Name VARCHAR(MAX) NOT NULL,
+    Content VARCHAR(MAX) NOT NULL,
+    WidgetType SMALLINT NOT NULL,
+    IsPublished BIT NOT NULL DEFAULT 0,
+    CreatedDate DATETIME NOT NULL,
+    IsDeleted BIT,
+    DisplayOrder INT 
+)

@@ -12,7 +12,7 @@ namespace BackOffice.API.Repositories
 
     void Commit();
     Database Database { get; }
-
     NavbarRepository NavbarRepository { get; }
+    WidgetRepository WidgetRepository { get; }
   }
 }
