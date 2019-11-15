@@ -13,6 +13,7 @@ namespace BackOffice.API.Repositories
     private readonly Database _database;
 
     private NavbarRepository _navbarRepository;
+    private WidgetRepository _widgetRepository;
 
     public PetaPocoUnitOfWork(string connectionString)
     {
@@ -40,6 +41,18 @@ namespace BackOffice.API.Repositories
           _navbarRepository = new NavbarRepository();
         }
         return _navbarRepository;
+      }
+    }
+
+    public WidgetRepository WidgetRepository
+    {
+      get
+      {
+        if (_widgetRepository == null)
+        {
+          _widgetRepository = new WidgetRepository();
+        }
+        return _widgetRepository;
       }
     }
 
