@@ -11,10 +11,10 @@
 
       <mat-label>Html Content</mat-label>
       <br />
-      <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="widget.content"></angular-editor>
+      <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="widget.content" [config]="editorConfig"></angular-editor>
       <br />
       <div class="bo-container__actionBtns">
-        <button mat-raised-button color="primary">Save</button>
+        <button mat-raised-button color="primary" (click)="save(widget)">Save</button>
         <button mat-raised-button (click)="cancel()">Cancel</button>
       </div>
     </div>

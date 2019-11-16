@@ -2,16 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { Observable, of } from 'rxjs';
 import { Widget } from 'src/app/models/widget';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { WidgetService } from 'src/app/services/widget.service';
+import { map } from 'rxjs/operators';
+import { AppSettings } from 'src/app/shared/app.settings';
 @Component({
   selector: 'app-widget-html',
   templateUrl: './widget-html.component.html',
   styleUrls: ['./widget-html.component.scss']
 })
 export class WidgetHtmlComponent implements OnInit {
-
+  isEdit = false;
   widget$: Observable<Widget>;
-  htmlContent: string;
 
   editorConfig: AngularEditorConfig = {
     editable: true,
@@ -49,15 +51,47 @@ export class WidgetHtmlComponent implements OnInit {
         tag: 'h1',
       },
     ],
-    uploadUrl: 'v1/image',
+    uploadUrl: `${AppSettings.API_ENDPOINT}/widget/UploadFile`,
     sanitize: true,
     toolbarPosition: 'top',
 };
 
-  constructor(private router: Router) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private widgetService: WidgetService) { }
 
   ngOnInit() {
     this.widget$ = of(new Widget());
+    if (this.router.url.includes('edit')) {
+      this.isEdit = true;
+      this.route.params.subscribe(params => {
+        const idParam = params.id;
+        this.widgetService.get(idParam).subscribe(res => {
+          this.widget$ = of(res);
+        });
+      });
+      this.route.paramMap.pipe(
+        map((params: ParamMap) => {
+          this.widgetService.get(params.get('id')).subscribe(res => {
+            this.widget$ = of(res);
+          });
+        })
+      );
+    }
+  }
+
+  save(widget: Widget) {
+    console.log(widget);
+    if (this.isEdit) {
+      this.widgetService.update(widget).subscribe(() => {
+        this.router.navigate(['../backoffice/widgets']);
+      });
+    } else {
+      this.widgetService.add(widget).subscribe(() => {
+        this.router.navigate(['../backoffice/widgets']);
+      });
+    }
   }
 
   cancel() {

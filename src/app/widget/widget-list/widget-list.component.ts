@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Widget } from 'src/app/models/widget';
 import { WidgetType } from 'src/app/models/widget.type';
+import { WidgetService } from 'src/app/services/widget.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-widget-list',
@@ -14,9 +16,14 @@ export class WidgetListComponent implements OnInit {
     { id: 1, name: 'Widget1', type: WidgetType.Html, content: '', isPublished: false, displayOrder: 0 },
     { id: 2, name: 'Widget2', type: WidgetType.Html, content: '', isPublished: true, displayOrder: 1 }
   ];
-  constructor() { }
+  constructor(private widgetService: WidgetService,
+              private router: Router) { }
 
   ngOnInit() {
+    this.widgetService.getAll().subscribe(res => this.dataSource = res);
   }
 
+  edit(id) {
+    this.router.navigate([`/backoffice/editHtmlWidget/${id}`]);
+  }
 }

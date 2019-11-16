@@ -13,7 +13,8 @@ const routes: Routes = [
       { path: 'addnavbar', component: AddNavbarComponent },
       { path: 'editnavbar/:id', component: AddNavbarComponent },
       { path: 'widgets', component: WidgetListComponent },
-      { path: 'widget-html', component: WidgetHtmlComponent },
+      { path: 'addHtmlWidget', component: WidgetHtmlComponent },
+      { path: 'editHtmlWidget/:id', component: WidgetHtmlComponent },
     ]
   },
 ];
