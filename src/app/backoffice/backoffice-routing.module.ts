@@ -5,6 +5,7 @@ import { NavbarListComponent } from '../navbar/components/navbar-list/navbar-lis
 import { WidgetListComponent } from '../widget/widget-list/widget-list.component';
 import { AddNavbarComponent } from '../navbar/components/add-navbar/add-navbar.component';
 import { WidgetHtmlComponent } from '../widget/widget-html/widget-html.component';
+import { WidgetProductComponent } from '../widget/widget-product/widget-product.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
       { path: 'widgets', component: WidgetListComponent },
       { path: 'addHtmlWidget', component: WidgetHtmlComponent },
       { path: 'editHtmlWidget/:id', component: WidgetHtmlComponent },
+      { path: 'addProductWidget', component: WidgetProductComponent },
     ]
   },
 ];

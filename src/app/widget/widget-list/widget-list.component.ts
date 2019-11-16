@@ -12,10 +12,9 @@ import { Router } from '@angular/router';
 export class WidgetListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'type', 'isPublished', 'actions'];
 
-  dataSource: Widget[] = [
-    { id: 1, name: 'Widget1', type: WidgetType.Html, content: '', isPublished: false, displayOrder: 0 },
-    { id: 2, name: 'Widget2', type: WidgetType.Html, content: '', isPublished: true, displayOrder: 1 }
-  ];
+  selected = 0;
+  widgetTypes = WidgetType;
+  dataSource: Widget[];
   constructor(private widgetService: WidgetService,
               private router: Router) { }
 
@@ -25,5 +24,15 @@ export class WidgetListComponent implements OnInit {
 
   edit(id) {
     this.router.navigate([`/backoffice/editHtmlWidget/${id}`]);
+  }
+
+  addWidget() {
+    if (this.selected == WidgetType.Html) {
+      this.router.navigate(['/backoffice/addHtmlWidget']);
+    } else if (this.selected == WidgetType.Product) {
+      this.router.navigate(['/backoffice/addProductWidget']);
+    } else {
+      this.router.navigate(['/backoffice/addHtmlWidget']);
+    }
   }
 }

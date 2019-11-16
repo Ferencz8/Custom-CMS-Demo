@@ -6,6 +6,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { WidgetService } from 'src/app/services/widget.service';
 import { map } from 'rxjs/operators';
 import { AppSettings } from 'src/app/shared/app.settings';
+import { WidgetType } from 'src/app/models/widget.type';
 @Component({
   selector: 'app-widget-html',
   templateUrl: './widget-html.component.html',
@@ -62,7 +63,10 @@ export class WidgetHtmlComponent implements OnInit {
     private widgetService: WidgetService) { }
 
   ngOnInit() {
-    this.widget$ = of(new Widget());
+    const widget = new Widget();
+    widget.widgettype = WidgetType.Html;
+    this.widget$ = of(widget);
+
     if (this.router.url.includes('edit')) {
       this.isEdit = true;
       this.route.params.subscribe(params => {

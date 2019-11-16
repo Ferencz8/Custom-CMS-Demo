@@ -7,7 +7,7 @@ export class Widget {
 
   content: string;
 
-  type: WidgetType;
+  widgettype: WidgetType;
 
   isPublished: boolean;
 

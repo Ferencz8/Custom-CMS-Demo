@@ -32,7 +32,8 @@ namespace BackOffice.API
     {
       using (var unitOfWork = new PetaPocoUnitOfWorkProvider().GetUnitOfWork(DbConn))
       {
-        return unitOfWork.WidgetRepository.GetAll().ToList();
+        var result = unitOfWork.WidgetRepository.GetAll().ToList();
+        return result;
       }
     }
 
@@ -109,7 +110,7 @@ namespace BackOffice.API
       }
     }
 
-    [HttpPost("[action]")]
+     [HttpPost("[action]")]
     [ProducesResponseType(typeof(JsonResult), StatusCodes.Status200OK)]
     [ProducesErrorResponseType(typeof(StatusCodeResult))]
     public async Task<IActionResult> UploadFile(IFormFile file)

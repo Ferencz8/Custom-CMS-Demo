@@ -1,0 +1,35 @@
+<mat-card class="bo-halfSize bo-centered bo-marginTop5perc">
+  <mat-card-header>
+    <mat-card-title>Add a Product Widget</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="bo-container bo-container__center">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput required [(ngModel)]="productWidget.name">
+      </mat-form-field>
+
+      <mat-label>Product Image</mat-label>
+      <br />
+      <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" [accept]="acceptedFileExtensions" [multiple]="false">
+        <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+          <span (click)="openFileSelector()">Drag & Drop / Browse Files</span>
+        </ng-template>
+      </ngx-file-drop>
+      <img *ngIf="!!imgUrl" [src]="imgUrl">
+      <mat-form-field>
+        <mat-label>Link</mat-label>
+        <input matInput required [(ngModel)]="link">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput required [(ngModel)]="description"></textarea>
+      </mat-form-field>
+      <br />
+      <div class="bo-container__actionBtns">
+        <button mat-raised-button color="primary" (click)="save()">Save</button>
+        <button mat-raised-button (click)="cancel()">Cancel</button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

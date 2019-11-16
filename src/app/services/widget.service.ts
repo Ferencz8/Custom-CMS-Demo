@@ -30,4 +30,8 @@ export class WidgetService {
   public update(widget: Widget) {
     return this.httpClient.put(`${AppSettings.API_ENDPOINT}/widget/${widget.id}`, widget);
   }
+
+  public upload(file: File){
+    return this.httpClient.post(`${AppSettings.API_ENDPOINT}/widget/UploadFile`, file);
+  }
 }

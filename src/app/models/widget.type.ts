@@ -1,3 +1,5 @@
+
 export enum WidgetType {
-  Html
+  Html = 0,
+  Product = 1
 }
