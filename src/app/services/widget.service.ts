@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { AppSettings } from '../shared/app.settings';
 import { Widget } from '../models/widget';
 import { Observable } from 'rxjs';
+import { formatDate } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,8 @@ export class WidgetService {
   }
 
   public upload(file: File){
-    return this.httpClient.post(`${AppSettings.API_ENDPOINT}/widget/UploadFile`, file);
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.httpClient.post(`${AppSettings.API_ENDPOINT}/widget/UploadFile`, formData);
   }
 }

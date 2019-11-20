@@ -4,7 +4,8 @@ import { Widget } from 'src/app/models/widget';
 import { Observable, of } from 'rxjs';
 import { WidgetService } from 'src/app/services/widget.service';
 import { WidgetType } from 'src/app/models/widget.type';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-widget-product',
@@ -23,11 +24,25 @@ export class WidgetProductComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private widgetService: WidgetService) { }
+    private widgetService: WidgetService,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.productWidget = new Widget();
-
+    if (this.router.url.includes('edit')) {
+      this.isEdit = true;
+      this.route.params.subscribe(params => {
+        const idParam = params.id;
+        this.widgetService.get(idParam).subscribe(res => {
+          this.productWidget = res;
+          //quick workaround
+          const productContent = JSON.parse(this.productWidget.content);
+          this.description = productContent.description;
+          this.link = productContent.link;
+          this.imgUrl = productContent.imageUrl;
+        });
+      });
+    }
   }
 
   public dropped(files: NgxFileDropEntry[]) {
@@ -63,25 +78,44 @@ export class WidgetProductComponent implements OnInit {
   }
 
   save() {
+
     if (this.imgFile) {
       this.widgetService.upload(this.imgFile).subscribe((res: any) => {
 
         let serverImgUrl = '';
-        if (!!res && !!res.imgUrl) {
-          serverImgUrl = res.imgUrl;
+        if (!!res && !!res.imageUrl) {
+          serverImgUrl = res.imageUrl;
         }
-        this.productWidget.content = JSON.stringify({
-          imageUrl: serverImgUrl,
-          description: this.description,
-          link: this.link
-        });
-        this.productWidget.widgettype = WidgetType.Product;
+        this.mapProductWidget(serverImgUrl);
 
-        this.widgetService.add(this.productWidget).subscribe(res2 =>
+        if (this.isEdit) {
+          this.widgetService.update(this.productWidget).subscribe(res2 =>
+            this.router.navigate(['../backoffice/widgets'])
+          );
+        } else {
+          this.widgetService.add(this.productWidget).subscribe(res2 =>
+            this.router.navigate(['../backoffice/widgets'])
+          );
+        }
+      });
+    } else {
+
+      if (this.isEdit) {
+        this.mapProductWidget(this.imgUrl);
+        this.widgetService.update(this.productWidget).subscribe(res2 =>
           this.router.navigate(['../backoffice/widgets'])
         );
-      });
+      }
     }
+  }
+
+  mapProductWidget(imgUrl) {
+    this.productWidget.content = JSON.stringify({
+      imageUrl: imgUrl,
+      description: this.description,
+      link: this.link
+    });
+    this.productWidget.widgetType = WidgetType.Product;
   }
 
   cancel() {

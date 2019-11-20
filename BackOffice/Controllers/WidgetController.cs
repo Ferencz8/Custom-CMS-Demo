@@ -62,15 +62,15 @@ namespace BackOffice.API
     [HttpPost]
     [ProducesResponseType(typeof(IActionResult), StatusCodes.Status200OK)]
     [ProducesErrorResponseType(typeof(BadRequestObjectResult))]
-    public IActionResult Post([FromBody]Widget navbar)
+    public IActionResult Post([FromBody]Widget widget)
     {
       try
       {
         using (var unitOfWork = new PetaPocoUnitOfWorkProvider().GetUnitOfWork(DbConn))
         {
-          navbar.IsPublished = true;
-          navbar.CreatedDate = DateTime.UtcNow;
-          unitOfWork.WidgetRepository.Insert(navbar);
+          widget.IsPublished = true;
+          widget.CreatedDate = DateTime.UtcNow;
+          unitOfWork.WidgetRepository.Insert(widget);
           unitOfWork.Commit();
         }
         return Ok();

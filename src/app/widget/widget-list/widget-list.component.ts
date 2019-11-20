@@ -22,8 +22,18 @@ export class WidgetListComponent implements OnInit {
     this.widgetService.getAll().subscribe(res => this.dataSource = res);
   }
 
-  edit(id) {
-    this.router.navigate([`/backoffice/editHtmlWidget/${id}`]);
+  edit(element: Widget) {
+    switch (element.widgetType) {
+      case WidgetType.Html:
+        this.router.navigate([`/backoffice/editHtmlWidget/${element.id}`]);
+        break;
+      case WidgetType.Product:
+        this.router.navigate([`/backoffice/editProductWidget/${element.id}`]);
+        break;
+      default:
+        break;
+    }
+
   }
 
   addWidget() {

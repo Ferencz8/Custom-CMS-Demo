@@ -17,6 +17,7 @@ const routes: Routes = [
       { path: 'addHtmlWidget', component: WidgetHtmlComponent },
       { path: 'editHtmlWidget/:id', component: WidgetHtmlComponent },
       { path: 'addProductWidget', component: WidgetProductComponent },
+      { path: 'editProductWidget/:id', component: WidgetProductComponent },
     ]
   },
 ];

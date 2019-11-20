@@ -64,7 +64,7 @@ export class WidgetHtmlComponent implements OnInit {
 
   ngOnInit() {
     const widget = new Widget();
-    widget.widgettype = WidgetType.Html;
+    widget.widgetType = WidgetType.Html;
     this.widget$ = of(widget);
 
     if (this.router.url.includes('edit')) {
@@ -75,13 +75,6 @@ export class WidgetHtmlComponent implements OnInit {
           this.widget$ = of(res);
         });
       });
-      this.route.paramMap.pipe(
-        map((params: ParamMap) => {
-          this.widgetService.get(params.get('id')).subscribe(res => {
-            this.widget$ = of(res);
-          });
-        })
-      );
     }
   }
 
