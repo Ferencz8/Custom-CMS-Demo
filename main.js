@@ -1017,7 +1017,7 @@ __webpack_require__.r(__webpack_exports__);
 var AppSettings = /** @class */ (function () {
     function AppSettings() {
     }
-    AppSettings.API_ENDPOINT = 'https://localhost:44377/api';
+    AppSettings.API_ENDPOINT = 'https://backofficedemo.azurewebsites.net/api';
     return AppSettings;
 }());
 
