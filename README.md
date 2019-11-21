@@ -15,3 +15,7 @@ Steps to setup:
 5. Build/Restore Nuget packages using Visual Studio 2017+.
 6. Start the BE on port 44377
  
+ToDos:
+1. Add functionality to Delete Widgets/Navbars
+2. Add functionality to publish / unpublish.
+3. Add display ordering
