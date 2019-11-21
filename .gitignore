@@ -1,11 +1,11 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
-/tmp
-/out-tsc
+PublicSite/dist
+PublicSite/tmp
+PublicSite/out-tsc
 # Only exists if Bazel was run
-/bazel-out
+PublicSite/bazel-out
 
 # dependencies
 **/node_modules
@@ -49,3 +49,12 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Security
+*.PublishSettings
+BackOffice/BackOffice.API.csproj.user
+
+BackOffice/appsettings.json
+PublicSite/src/app/shared/app.settings.ts
+
+BackOffice/Properties/PublishProfiles/

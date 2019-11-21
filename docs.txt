@@ -1,0 +1,5 @@
+Command to run to build the FE solution for github pages:
+ng build --base-href /Custom-CMS-Demo/
+
+Command to run to push ghpages - for github pages:
+angular-cli-ghpages -d /dist/backoffice

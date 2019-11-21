@@ -12,7 +12,7 @@
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li *ngFor="let navbar of navbars$ | async">
-            <a [href]="'/public' + navbar.url" class="smoothscroll">{{navbar.name}}</a>
+            <a [href]="pathName + navbar.url" class="smoothscroll">{{navbar.name}}</a>
           </li>
         </ul>
       </div>
@@ -62,7 +62,7 @@
               <img class="img-responsive" [src]="productWidget.content?.imageUrl" alt="">
               <figcaption>
                 <h5>{{productWidget.name}}</h5>
-                <a data-toggle="modal" [href]="'/public#' + productWidget.id" class="btn btn-primary btn-lg">Take a
+                <a data-toggle="modal" [href]="pathName + '#' + productWidget.id" class="btn btn-primary btn-lg">Take a
                   Look</a>
               </figcaption>
               <!-- /figcaption -->
