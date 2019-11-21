@@ -1,3 +1,6 @@
+PublicSite: https://ferencz8.github.io/Custom-CMS-Demo/public
+BackOffice: https://ferencz8.github.io/Custom-CMS-Demo
+
 Custom CMS built using:
 - Angular 7 for FrontEnd (FE) 
 - ASP.NET Core 2.0 for BackEnd/BackOffice (BE)
