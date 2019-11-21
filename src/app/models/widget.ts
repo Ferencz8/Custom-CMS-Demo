@@ -5,7 +5,7 @@ export class Widget {
 
   name: string;
 
-  content: string;
+  content: any;
 
   widgetType: WidgetType;
 

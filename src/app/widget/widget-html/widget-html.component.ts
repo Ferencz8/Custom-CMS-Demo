@@ -53,7 +53,7 @@ export class WidgetHtmlComponent implements OnInit {
       },
     ],
     uploadUrl: `${AppSettings.API_ENDPOINT}/widget/UploadFile`,
-    sanitize: true,
+    sanitize: false,
     toolbarPosition: 'top',
 };
 

@@ -47,6 +47,16 @@ namespace BackOffice.API
       }
     }
 
+    [HttpGet("[action]")]
+    [ProducesResponseType(typeof(IEnumerable<Widget>), StatusCodes.Status200OK)]
+    public IEnumerable<Widget> GetAllPublishedOfType(WidgetType widgetType)
+    {
+      using (var unitOfWork = new PetaPocoUnitOfWorkProvider().GetUnitOfWork(DbConn))
+      {
+        return unitOfWork.WidgetRepository.GetAllPublished().Where(n => n.WidgetType == widgetType).ToList();
+      }
+    }
+
     // GET api/<controller>/5
     [HttpGet("{id}")]
     [ProducesResponseType(typeof(Widget), StatusCodes.Status200OK)]
@@ -160,7 +170,7 @@ namespace BackOffice.API
         var path = Path.Combine(Directory.GetCurrentDirectory(), "images", fileName);
 
         var memoryStream = new MemoryStream();
-        var fileStream = new FileStream(path, FileMode.Open);
+        var fileStream = new FileStream(path, FileMode.Open, FileAccess.Read);
 
         await fileStream.CopyToAsync(memoryStream);
         memoryStream.Seek(0, SeekOrigin.Begin);

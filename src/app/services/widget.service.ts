@@ -4,6 +4,7 @@ import { AppSettings } from '../shared/app.settings';
 import { Widget } from '../models/widget';
 import { Observable } from 'rxjs';
 import { formatDate } from '@angular/common';
+import { WidgetType } from '../models/widget.type';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,10 @@ export class WidgetService {
 
   public getAllPublished(): Observable<Widget[]> {
     return this.httpClient.get<Widget[]>(`${AppSettings.API_ENDPOINT}/widget/GetAllPublished`);
+  }
+
+  public getAllPublishedOfType(widgetType: WidgetType): Observable<Widget[]> {
+    return this.httpClient.get<Widget[]>(`${AppSettings.API_ENDPOINT}/widget/GetAllPublishedOfType?widgetType=${widgetType}`);
   }
 
   public getAll(): Observable<Widget[]> {

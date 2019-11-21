@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { BackofficeRoutingModule } from './backoffice-routing.module';
 import { SharedMaterialModule } from '../shared.module';
+import { SafeHtmlPipe } from '../shared/safe.html.pipe';
 
 @NgModule({
   declarations: [BackofficeComponent],
