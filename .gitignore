@@ -8,10 +8,11 @@
 /bazel-out
 
 # dependencies
-/node_modules
+**/node_modules
 **/bin
 **/obj
 **/.vs
+**/images
 
 # profiling files
 chrome-profiler-events.json
