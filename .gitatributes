@@ -1,3 +1,4 @@
 # Source code
 **/*.css             text
 **/*.js              text
+PublicSite/src/assets/* linguist-vendored
