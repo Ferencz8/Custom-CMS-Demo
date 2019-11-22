@@ -6,6 +6,7 @@ import { NavbarService } from '../services/navbar.service';
 import { WidgetService } from '../services/widget.service';
 import { WidgetType } from '../models/widget.type';
 import { map } from 'rxjs/operators';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-publicsite',
@@ -20,10 +21,12 @@ export class PublicsiteComponent implements OnInit {
   productWidgets$: Observable<Widget[]>;
 
   constructor(private navbarService: NavbarService,
-              private widgetService: WidgetService) {
+              private widgetService: WidgetService,
+              private titleService: Title) {
   }
 
   ngOnInit() {
+    this.titleService.setTitle('PublicSite');
     this.pathName = window.location.pathname;
 
     this.navbars$ = this.navbarService.getAllPublished();
