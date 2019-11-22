@@ -743,6 +743,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_widget_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../services/widget.service */ "./src/app/services/widget.service.ts");
 /* harmony import */ var _models_widget_type__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../models/widget.type */ "./src/app/models/widget.type.ts");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
+
 
 
 
@@ -750,11 +752,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var PublicsiteComponent = /** @class */ (function () {
-    function PublicsiteComponent(navbarService, widgetService) {
+    function PublicsiteComponent(navbarService, widgetService, titleService) {
         this.navbarService = navbarService;
         this.widgetService = widgetService;
+        this.titleService = titleService;
     }
     PublicsiteComponent.prototype.ngOnInit = function () {
+        this.titleService.setTitle('PublicSite');
         this.pathName = window.location.pathname;
         this.navbars$ = this.navbarService.getAllPublished();
         // use a custom pipe
@@ -774,7 +778,8 @@ var PublicsiteComponent = /** @class */ (function () {
             styles: [__webpack_require__(/*! ./publicsite.component.scss */ "./src/app/publicsite/publicsite.component.scss")]
         }),
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_navbar_service__WEBPACK_IMPORTED_MODULE_2__["NavbarService"],
-            _services_widget_service__WEBPACK_IMPORTED_MODULE_3__["WidgetService"]])
+            _services_widget_service__WEBPACK_IMPORTED_MODULE_3__["WidgetService"],
+            _angular_platform_browser__WEBPACK_IMPORTED_MODULE_6__["Title"]])
     ], PublicsiteComponent);
     return PublicsiteComponent;
 }());
